@@ -24,11 +24,8 @@ import seaborn as sns
 def define_period(region,phy_sig=None):
     if region=="P1":
         if phy_sig=='rsp_phase':
-<<<<<<< Updated upstream
             crop_period=[0.065,0.095]
-=======
-            crop_period=[0.06,0.095]
->>>>>>> Stashed changes
+
         elif phy_sig=='cardiac_phase':
             crop_period=[0.09,0.12]
         else:
