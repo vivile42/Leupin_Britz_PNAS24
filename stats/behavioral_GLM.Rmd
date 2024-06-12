@@ -1,0 +1,66 @@
+---
+title: "Behavioral analyises"
+output: html_notebook
+---
+
+This is an [R Markdown](http://rmarkdown.rstudio.com) Notebook. When you execute code within the notebook, 
+
+#load libraries
+```{r}
+library("dplyr")
+library('lme4')
+library('lmerTest')
+library('arrow')
+require('flexplot')
+library("tidyverse")
+library('stats')
+
+```
+
+
+
+#load data
+
+```{r}
+
+df<-arrow::read_feather('/Volumes/BBC/BBC/WP1/data/EEG/tsk/ana/behavioral/epoch_df/tsk_n_epo_vep_cfa_df_P1_150_2_5quantile_symm_filtered.feather')
+```
+
+```{r}
+df$g_num<-factor(df$g_num)
+df$awareness<-factor(df$awareness)
+df$rsp_phase<-factor(df$rsp_phase)
+df$cardiac_phase<-factor(df$cardiac_phase)
+
+```
+
+
+```{r}
+fit_gamma<-fitdist(df$RT,distr='gamma', method='mle')
+summary(fit_gamma)
+plot(fit_gamma)
+```
+```{r}
+fit_inverse<-fitdist(df$RT,'invgauss',start=list(mean=5,shape=1))
+summary(fit_inverse)
+plot(fit_inverse)
+```
+```{r}
+fit_inverse<-fitdist(df$RT,'norm')
+summary(fit_inverse)
+plot(fit_inverse)
+```
+
+
+```{r}
+glm_model<-glmer(RT~awareness*rsp_phase+(1|g_num), data=df, family=inverse.gaussian(link="identity"))
+summary(glm_model)
+plot(glm_model)
+```
+
+```{r}
+glm_model<-glmer(RT~awareness*cardiac_phase+(1|g_num), data=df, family=inverse.gaussian(link="identity"))
+summary(glm_model)
+plot(glm_model)
+```
+
