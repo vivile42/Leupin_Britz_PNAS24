@@ -5,7 +5,7 @@ Each folder is generally organized with a main, helper and constants script.
 - The main scripts contain the code that must be run.
 - The helper scripts contain the helper functions and classes used to run the code.
 - The constant files contain constants that are called in the script.
-<br>The base folder contains some helper functions to filter through the data directories.
+- The base folder contains some helper functions to filter through the data directories.
 
 ## Preprocessing
 ### Order to run preprocessing
