@@ -19,7 +19,7 @@ import base.base_constants as b_cs
 
 
 
-for g_n in reversed(b_cs.G_N):
+for g_n in b_cs.G_N:
     for cond in cs.condition:
         files = GetFiles(filepath=cs.datafolder,
                                       condition=cond,g_num=g_n,
