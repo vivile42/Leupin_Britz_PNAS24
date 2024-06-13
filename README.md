@@ -2,9 +2,9 @@ Code accompanying Leupin and Britz, PNAS (2024)
 We here provide the code for preprocessing, epoching, and analysis of EEG data in sensor and source space. EEG data can be made available upon request.
 # Code organization
 Each folder is generally organized with a main, helper and constants script.
-•	The main scripts contain the code that must be run.
-•	The helper scripts contain the helper functions and classes used to run the code.
-•	The constant files contain constants that are called in the script.
+- The main scripts contain the code that must be run.
+- The helper scripts contain the helper functions and classes used to run the code.
+- The constant files contain constants that are called in the script.
 The base folder contains some helper functions to filter through the data directories.
 
 ## Preprocessing
