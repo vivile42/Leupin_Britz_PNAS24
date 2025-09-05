@@ -379,6 +379,14 @@ def get_tTest(X, label=None, FDR=False, plot_times='peaks',
         fig = plt.gcf()
         filenam = fig_path+f'/{png}_topo.svg'
         fig.savefig(filenam, dpi=1200, transparent=True,format='svg')
+        filename_t=fig_path+f'/t_values_{png}.ep'
+
+        np.savetxt(filename_t,ts.T)
+        filename_p=fig_path+f'/p_values_noc_{png}.ep'
+        np.savetxt(filename_p,ps.T)
+        if FDR:
+            filename_p=fig_path+f'/p_values_FDR_{png}.ep'
+            np.savetxt(filename_p,pval_fdr.T)
 
     # add graphs to report to produce HTML only if label is present
     if FDR:
@@ -431,7 +439,7 @@ def get_perm_tTest(X, n_perm=1000, label=None, FDR=False, plot_times='peaks', av
         if not os.path.exists(fig_path):
             os.makedirs(fig_path)
         filenam = fig_path+f'/{png}_mass.png'
-        fig_evo.savefig(filenam, dpi=600)
+        #fig_evo.savefig(filenam, dpi=600)
     #generate topoplot
 
     fig_topo = evok.plot_topomap(
@@ -439,7 +447,16 @@ def get_perm_tTest(X, n_perm=1000, label=None, FDR=False, plot_times='peaks', av
     if png != None:
         fig = plt.gcf()
         filenam = fig_path+f'/{png}_topo.png'
-        fig.savefig(filenam, dpi=600, transparent=True)
+        #fig.savefig(filenam, dpi=600, transparent=True)
+        filename_t=fig_path+f'/t_values_{png}.ep'
+
+        np.savetxt(filename_t,ts.T)
+        filename_p=fig_path+f'/p_values_noc_{png}.ep'
+        np.savetxt(filename_p,ps.T)
+        if FDR:
+            filename_p=fig_path+f'/p_values_FDR_{png}.ep'
+            np.savetxt(filename_p,pval_fdr.T)
+
 
     # add graphs to report to produce HTML only if label is present
     if FDR:

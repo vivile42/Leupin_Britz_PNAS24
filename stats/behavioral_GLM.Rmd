@@ -23,7 +23,7 @@ library('stats')
 
 ```{r}
 
-df<-arrow::read_feather('/Volumes/BBC/BBC/WP1/data/EEG/tsk/ana/behavioral/epoch_df/tsk_n_epo_vep_cfa_df_P1_150_2_5quantile_symm_filtered.feather')
+df<-arrow::read_feather('/Volumes/BBC/BBC/WP1/data/EEG/tsk/ana/behavioral/tsk_n_epo_vep_cfa_df_2_5quantile_symm_filtered.feather')
 ```
 
 ```{r}
